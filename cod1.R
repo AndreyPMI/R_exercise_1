@@ -6,12 +6,12 @@ library('rvest') # работа с DOM сайта
 library('dplyr') # инструменты трансформирования данных
 #выбираем данные 
 fileURL <- "https://market.yandex.ru/catalog--smartfony/16814639/list?hid=91491&glfilter=16816262%3A16816264&local-offers-first=0&onstock=1&viewtype=list"
-html <-getURL(fileURL)
-doc <- htmlParse(html)
+html <- getURL(fileURL, .encoding = 'UTF-8')
+doc <- htmlParse(html, encoding = "UTF-8")
 rootNode <- xmlRoot(doc)
 fileURL2 <- "https://market.yandex.ru/catalog--smartfony/16814639/list?hid=91491&glfilter=16816262%3A16816264&local-offers-first=0&onstock=1&viewtype=list&page=2"
-html2 <-getURL(fileURL2)
-doc2 <- htmlParse(html2)
+html2 <- getURL(fileURL2, .encoding = 'UTF-8')
+doc2 <- htmlParse(html2, encoding = "UTF-8")
 rootNode2 <- xmlRoot(doc2)
 #находим класс отвечающий за модель
 m <- xpathSApply(rootNode, '//h3[@class="n-snippet-card2__title"]/a',
