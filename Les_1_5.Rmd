@@ -24,12 +24,12 @@ library('dplyr') # инструменты трансформирования д�
 Загружаем две страницы поиска
 ```{r}
 fileURL <- "https://market.yandex.ru/catalog--smartfony/16814639/list?hid=91491&glfilter=16816262%3A16816264&local-offers-first=0&onstock=1&viewtype=list"
-html <-getURL(fileURL)
-doc <- htmlParse(html)
+html <- getURL(fileURL, .encoding = 'UTF-8')
+doc <- htmlParse(html, encoding = "UTF-8")
 rootNode <- xmlRoot(doc)
 fileURL2 <- "https://market.yandex.ru/catalog--smartfony/16814639/list?hid=91491&glfilter=16816262%3A16816264&local-offers-first=0&onstock=1&viewtype=list&page=2"
-html2 <-getURL(fileURL2)
-doc2 <- htmlParse(html2)
+html2 <- getURL(fileUR2L, .encoding = 'UTF-8')
+doc2 <- htmlParse(html2, encoding = "UTF-8")
 rootNode2 <- xmlRoot(doc2)
 ```
 Выбирем наименования моделей и объединяем данные с двух страниц
